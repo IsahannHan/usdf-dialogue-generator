@@ -1,19 +1,20 @@
 #include <fstream>
 #include <iostream>
+#include "classes/conversation.h"
 
 using namespace std;
 
 ofstream of_file;
 
-void beginConversation(){
-  of_file << "conversation\n{";
-}
-
 int main(void){
+    Conversation conversation;
+
+    cout << conversation.actor;
+
     string _namespace; 
 
-   
-    of_file.open("generated_file.txt", ios::out);
+
+    of_file.open("generated_dialogue.txt", ios::out);
 
     cout << "--------------------STRIFE FILE GENERATOR--------------------\n\n";
     cout << "*BEGGINING CREATION*\n";
@@ -23,7 +24,6 @@ int main(void){
 
     of_file << "namespace = "<< "\"" << _namespace << "\"" << "\n" << endl;
 
-    beginConversation();
 }
 
 
