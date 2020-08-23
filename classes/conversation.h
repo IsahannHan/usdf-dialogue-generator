@@ -8,4 +8,6 @@ class Conversation{
 
         string actor;
         Page page;
+
+        string tag();
 };
