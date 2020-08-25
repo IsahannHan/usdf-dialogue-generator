@@ -1,20 +1,30 @@
-#include "conversation.h"
+#include "../utils/constants.cpp"
+#include "../utils/functions.cpp"
 
-using namespace std;
+#include "page.cpp"
 
-string Conversation::tag()
+#include <string>
+#include <stdio.h>
+
+#define IDENTIFIER "conversation"
+
+class Conversation
 {
-    const string open = "\n{\n";
-    const string close = "\n{\n";
-    const string tagidentifier = "conversation";
-    string tag;
+public:
+    std::string actor;
+    Page page;
 
-    tag.append(
-        tagidentifier, open,
-        
-        actor,        
-        
-        close);
+    std::string tag(int nestedTabs)
+    {
+        std::string tag;
+        std::string tabs = generateTabs(nestedTabs);
 
-    return tag;
-}
+        tag.append(IDENTIFIER)
+            .append(TAG_OPEN)
+            .append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
+            .append(tabs).append(page.tag(nestedTabs))
+            .append(TAG_CLOSE);
+
+        return tag;
+    }
+};
