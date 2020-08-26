@@ -1,6 +1,9 @@
-#include "Conversation.h"
 #include <iostream>
+
+#include "Conversation.h"
 #include "Functions.cpp"
+
+#define GET_VARIABLE_NAME(v) (#v)
 
 using namespace utils_functions;
 
@@ -20,7 +23,7 @@ std::string Conversation::tag(int nestedTabs)
 
 	tag.append(initialTabs.append(IDENTIFIER))
 		.append(tagBracket(initialTabs, true))
-		.append(createItemWithValue(tabs, getVariableName(actor), actor))
+		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
 		.append(page->tag(nestedTabs))
 		.append(tagBracket(initialTabs, false));
 

@@ -1,14 +1,14 @@
 conversation
 {
-	name = "Antonio pirongas"; 
+	actor = "Antonio pirongas"; 
 	page
 	{
 		name = "teste"; 
-		name = "t"; 
-		name = "foda-se"; 
-		name = "caralho"; 
-		name = 4; 
-		name = 4; 
+		panel = "t"; 
+		voice = "foda-se"; 
+		dialog = "caralho"; 
+		drop = 4; 
+		link = 4; 
 	}
 }
 

@@ -1,6 +1,10 @@
-#include "Page.h"
 #include <string>
+
+#include "Page.h"
 #include "Functions.cpp"
+
+#define GET_VARIABLE_NAME(v) (#v)
+
 using namespace utils_functions;
 
 constexpr auto IDENTIFIER = "page";
@@ -23,12 +27,12 @@ std::string Page::tag(int nestedTabs)
 
     tag.append(initialTabs.append(IDENTIFIER))
         .append(tagBracket(initialTabs, true))
-        .append(createItemWithValue(tabs, getVariableName(name), name))
-        .append(createItemWithValue(tabs, getVariableName(panel), panel))
-        .append(createItemWithValue(tabs, getVariableName(voice), voice))
-        .append(createItemWithValue(tabs, getVariableName(dialog), dialog))
-        .append(createItemWithValue(tabs, getVariableName(drop), drop))
-        .append(createItemWithValue(tabs, getVariableName(link), link))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(name), name))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(panel), panel))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(voice), voice))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(dialog), dialog))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(drop), drop))
+        .append(createItemWithValue(tabs, GET_VARIABLE_NAME(link), link))
         .append(tagBracket(initialTabs, false));
 
     return tag;

@@ -2,20 +2,10 @@
 #include <stdio.h>
 #include <sstream>
 
-#define GET_VARIABLE_NAME(name) #name
-
 constexpr auto TAB = "\t";
 constexpr auto ITEM_ASSIGN = " = ";
 
 namespace utils_functions {
-
-    const static std::string getVariableName(std::string name) {
-        return GET_VARIABLE_NAME(name);
-    }
-
-    const static std::string getVariableName(int name) {
-        return GET_VARIABLE_NAME(name);
-    }
 
     const static std::string toString(int str)
     {

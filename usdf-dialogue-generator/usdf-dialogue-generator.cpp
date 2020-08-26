@@ -9,7 +9,7 @@ ofstream of_file;
 int main(void) {
     Page page("teste", "t", "foda-se", "caralho", 2, 355);
 
-    Conversation conversation("Antonio pirongas", &page);
+    Conversation conversation("Antonio pirocas", &page);
 
     // cout << "ACTOR: " << conversation.actor << "TAG: \n" << conversation.tag();
 
