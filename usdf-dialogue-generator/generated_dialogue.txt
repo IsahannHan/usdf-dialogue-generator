@@ -1,0 +1,14 @@
+conversation
+{
+	name = "Antonio pirongas"; 
+	page
+	{
+		name = "teste"; 
+		name = "t"; 
+		name = "foda-se"; 
+		name = "caralho"; 
+		name = 4; 
+		name = 4; 
+	}
+}
+
