@@ -1,9 +1,9 @@
-using namespace std;
+#include <string>
 
 class Cost{
     public:
-        const string _identifier = "cost";
-        
+        const std::string _identifier = "cost";
+
         int item;
         int amount;
 };

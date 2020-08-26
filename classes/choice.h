@@ -1,17 +1,16 @@
 #include "cost.h"
-
-using namespace std;
+#include <string>
 
 class Choice{
     public:
-        const string _identifier = "choice";
-        
-        string text;
+        const std::string _identifier = "choice";
+
+        std::string text;
         Cost cost;
         bool displaycost;
-        string yesmessage;
-        string nomessage;
-        string log;
+        std::string yesmessage;
+        std::string nomessage;
+        std::string log;
         int giveitem;
 
         int special;

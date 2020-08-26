@@ -1,4 +1,3 @@
-#include "../utils/constants.cpp"
 #include "../utils/functions.cpp"
 
 #include "page.cpp"
@@ -17,13 +16,14 @@ public:
     std::string tag(int nestedTabs)
     {
         std::string tag;
+        std::string initialTabs = generateInitialTabs(nestedTabs);
         std::string tabs = generateTabs(nestedTabs);
 
-        tag.append(IDENTIFIER)
-            .append(TAG_OPEN)
+        tag.append(initialTabs.append(IDENTIFIER))
+            .append(tagBracket(initialTabs, true))
             .append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
-            .append(tabs).append(page.tag(nestedTabs))
-            .append(TAG_CLOSE);
+            .append(page.tag(nestedTabs))
+            .append(tagBracket(initialTabs, false));
 
         return tag;
     }
