@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <sstream>
 
-#include "../utils/constants.cpp"
-
 #define GET_VARIABLE_NAME(name) (#name)
 #define TAB "\t"
 #define ITEM_ASSIGN " = "
@@ -67,5 +65,5 @@ const std::string createItemWithValue(std::string tabs, std::string itemPrefix, 
 
 const std::string tagBracket(std::string tabs, bool opening)
 {
-    return opening ? "\n" + tabs.append(TAG_OPEN) : tabs.append(TAG_CLOSE);
+    return opening ? "\n" + tabs.append("{") + "\n" : tabs.append("}") + "\n";
 }
