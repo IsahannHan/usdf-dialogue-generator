@@ -44,24 +44,17 @@ namespace utils_functions {
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, bool itemValue)
     {
-        std::cout << "CREATING ITEM WITH BOOLEAN" << std::endl;
         return createItem(tabs, itemPrefix, itemValue ? "true" : "false", false);
     }
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, std::string itemValue)
     {
-        std::cout << "CREATING ITEM WITH STRING" << std::endl;
-
         return createItem(tabs, itemPrefix, itemValue, true);
     }
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, int itemValue)
     {
-        std::cout << "CONVERTING MY MAN " << itemValue << std::endl;
-
         std::string value = std::to_string(itemValue);
-
-        std::cout << "MY MAN GOT CONVERTED INTO " << value << std::endl;
 
         return createItem(tabs, itemPrefix, value, false);
     }
