@@ -2,6 +2,8 @@
 
 #include <string>
 #include <list>
+#include "Ifitem.h"
+#include "Choice.h"
 class Page
 {
 public:
@@ -10,7 +12,9 @@ public:
         std::string voice,
         std::string dialog,
         int drop,
-        int link);
+        int link,
+        Ifitem* ifitem,
+        std::list<Choice>* choice);
 
     std::string name;
     std::string panel;
@@ -18,6 +22,8 @@ public:
     std::string dialog;
     int drop;
     int link;
+    Ifitem* ifitem;
+    std::list<Choice>* choice;
 
     std::string tag(int nestedTabs);
 };

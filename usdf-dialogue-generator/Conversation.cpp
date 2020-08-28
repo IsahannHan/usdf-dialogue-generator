@@ -3,7 +3,7 @@
 
 #include "Conversation.h"
 #include "Functions.cpp"
-#include "GenericIterator.cpp"
+#include "Generics.cpp"
 
 #define GET_VARIABLE_NAME(v) (#v)
 
