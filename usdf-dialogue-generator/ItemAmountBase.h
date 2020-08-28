@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 class ItemAmountBase
 {
 public:
@@ -6,5 +7,7 @@ public:
 
 	int item;
 	int amount;
+
+	std::string tag(int nestedTabs);
 };
 

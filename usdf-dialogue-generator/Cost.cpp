@@ -1,4 +1,4 @@
-#include "Ifitem.h"
+#include "Cost.h"
 
 #include "Functions.cpp"
 #include "Generics.cpp"
@@ -7,9 +7,9 @@
 
 using namespace utils_functions;
 
-constexpr auto IDENTIFIER = "ifitem";
+constexpr auto IDENTIFIER = "cost";
 
-std::string Ifitem::tag(int nestedTabs)
+std::string Cost::tag(int nestedTabs)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(nestedTabs);

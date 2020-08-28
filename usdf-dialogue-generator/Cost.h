@@ -1,10 +1,11 @@
 #pragma once
 #include "ItemAmountBase.h"
-class Ifitem :
+class Cost :
     public ItemAmountBase
 {
 public:
     using ItemAmountBase::ItemAmountBase;
-    std::string tag(int nestedTags);
+
+    std::string tag(int nestedTabs);
 };
 
