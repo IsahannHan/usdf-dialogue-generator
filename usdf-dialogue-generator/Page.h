@@ -1,6 +1,7 @@
 #pragma once
-#include <string>
 
+#include <string>
+#include <list>
 class Page
 {
 public:
@@ -20,4 +21,3 @@ public:
 
     std::string tag(int nestedTabs);
 };
-
