@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3bd259cb-a122-4839-8aac-8635f2328e0a}</ProjectGuid>
-    <RootNamespace>usdfdialoguegenerator</RootNamespace>
+    <ProjectGuid>{ffed8679-683a-4e23-b708-e05ad32a3e08}</ProjectGuid>
+    <RootNamespace>zsdfdialoguegenerator</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,26 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Choice.cpp" />
-    <ClCompile Include="Conversation.cpp" />
-    <ClCompile Include="Cost.cpp" />
-    <ClCompile Include="Functions.cpp" />
-    <ClCompile Include="Generics.cpp" />
-    <ClCompile Include="Ifitem.cpp" />
-    <ClCompile Include="ItemAmountBase.cpp" />
-    <ClCompile Include="Page.cpp" />
-    <ClCompile Include="usdf-dialogue-generator.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Choice.h" />
-    <ClInclude Include="Conversation.h" />
-    <ClInclude Include="Cost.h" />
-    <ClInclude Include="Ifitem.h" />
-    <ClInclude Include="ItemAmountBase.h" />
-    <ClInclude Include="Page.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="usdf-dialogue-generator.rc" />
+    <ClCompile Include="zsdf-dialogue-generator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
