@@ -1,18 +1,13 @@
 #include <string>
 #include <stdio.h>
 #include <sstream>
+#include <list>
+#include <iostream>
 
 constexpr auto TAB = "\t";
 constexpr auto ITEM_ASSIGN = " = ";
 
 namespace utils_functions {
-
-    const static std::string toString(int str)
-    {
-        std::stringstream gstream;
-        gstream << 4;
-        return gstream.str();
-    }
 
     const static std::string generateTabs(int& nestedTabs)
     {
@@ -49,17 +44,24 @@ namespace utils_functions {
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, bool itemValue)
     {
+        std::cout << "CREATING ITEM WITH BOOLEAN" << std::endl;
         return createItem(tabs, itemPrefix, itemValue ? "true" : "false", false);
     }
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, std::string itemValue)
     {
+        std::cout << "CREATING ITEM WITH STRING" << std::endl;
+
         return createItem(tabs, itemPrefix, itemValue, true);
     }
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, int itemValue)
     {
-        std::string value = toString(itemValue);
+        std::cout << "CONVERTING MY MAN " << itemValue << std::endl;
+
+        std::string value = std::to_string(itemValue);
+
+        std::cout << "MY MAN GOT CONVERTED INTO " << value << std::endl;
 
         return createItem(tabs, itemPrefix, value, false);
     }
@@ -68,4 +70,5 @@ namespace utils_functions {
     {
         return opening ? "\n" + tabs.append("{") + "\n" : tabs.append("}") + "\n";
     }
+
 }
