@@ -10,5 +10,5 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 - [ ] Receive user input, and generate a dialogue from it
 
 ### Desirable stuff:
-- [ ] For CLI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ for input
+- [ ] For the UI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ CLI
 - [ ] Create an REST API using [Pistache](http://pistache.io/), to be consumed by some webapp (React? Angular?)
