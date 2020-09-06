@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseFile.cpp" />
     <ClCompile Include="Choice.cpp" />
     <ClCompile Include="Conversation.cpp" />
     <ClCompile Include="Cost.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="usdf-dialogue-generator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseFile.h" />
     <ClInclude Include="Choice.h" />
     <ClInclude Include="Conversation.h" />
     <ClInclude Include="Cost.h" />

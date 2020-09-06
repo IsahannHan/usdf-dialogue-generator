@@ -1,8 +1,30 @@
 ﻿#include <fstream>
 #include <iostream>
 #include <string>
+#include "BaseFile.h"
 
 std::ofstream of_file;
+
+void dialogueCreation() {
+	// Create BaseFile
+	std::string nameSpace;
+	std::string include;
+
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << "|                         CREATING FILE BASE                              |" << std::endl;
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << "Please type the \"namespace\" attribute and press enter: ";
+	std::getline(std::cin, nameSpace);
+
+	std::cout << "Please type the \"include\" attribute and press enter: ";
+	std::getline(std::cin, nameSpace);
+
+	std::cout << "\n Proceeding to create \"Conversation\" object..." << std::endl;
+
+	// Create Conversation
+
+	system("pause");
+}
 
 void intro() {
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -26,10 +48,6 @@ void intro() {
 	std::cout << "|                                                                         |" << std::endl;
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
 	system("pause");
-}
-
-void dialogueCreation() {
-
 }
 
 void dialogueFields() {
