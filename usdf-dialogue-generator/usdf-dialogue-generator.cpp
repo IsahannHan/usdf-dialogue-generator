@@ -7,21 +7,38 @@ std::ofstream of_file;
 
 void dialogueCreation() {
 	// Create BaseFile
+	char satisfied{};
 	std::string nameSpace;
 	std::string include;
 
-	std::cout << "---------------------------------------------------------------------------" << std::endl;
-	std::cout << "|                         CREATING FILE BASE                              |" << std::endl;
-	std::cout << "---------------------------------------------------------------------------" << std::endl;
-	std::cout << "Please type the \"namespace\" attribute and press enter: ";
-	std::getline(std::cin, nameSpace);
+	while (toupper(satisfied) != 'Y') {
+		std::cout << "---------------------------------------------------------------------------" << std::endl;
+		std::cout << "|                         CREATING FILE BASE                              |" << std::endl;
+		std::cout << "---------------------------------------------------------------------------" << std::endl;
+		std::cout << "Please type the \"namespace\" attribute and press enter: ";
+		std::getline(std::cin >> std::ws, nameSpace);
 
-	std::cout << "Please type the \"include\" attribute and press enter: ";
-	std::getline(std::cin, nameSpace);
+		std::cout << "Please type the \"include\" attribute and press enter: ";
+		std::getline(std::cin >> std::ws, include);
 
+		BaseFile basefile(nameSpace, include, NULL);
+
+		std::cout << "---------------------------------------------------------------------------" << std::endl;
+		std::cout << "|                         REVIEW FILE BASE                                |" << std::endl;
+		std::cout << "---------------------------------------------------------------------------" << std::endl;
+		std::cout << basefile.tag(true) << std::endl;
+
+		std::cout << "Does this looks good? Y to continue, N to recreate: ";
+		std::cin >> satisfied;
+
+		system("cls");
+	}
+
+	std::cout << "Base file created!";
 	std::cout << "\n Proceeding to create \"Conversation\" object..." << std::endl;
 
 	// Create Conversation
+
 
 	system("pause");
 }
@@ -264,7 +281,7 @@ void menu() {
 		std::cin >> choice;
 
 		system("cls");
-		
+
 		switch (choice) {
 		case 0:
 			std::cout << "---------------------------------------------------------------------------" << std::endl;

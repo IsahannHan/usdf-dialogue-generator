@@ -15,7 +15,7 @@ BaseFile::BaseFile(std::string nameSpace, std::string include, Conversation* con
 	this->conversation = conversation;
 }
 
-std::string BaseFile::tag()
+std::string BaseFile::tag(bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(INITIAL_TABS);
@@ -23,7 +23,7 @@ std::string BaseFile::tag()
 	tag.append(createItemWithValue(initialTabs, "namespace", nameSpace)) // Can't create variable with name 'namespace', so just send it like this lmao
 	    .append(createItemWithValue(initialTabs, GET_VARIABLE_NAME(include), include))
 		.append("\n")
-		.append(createSingleItem(INITIAL_TABS, *conversation));
+		.append(baseTag ? "" : createSingleItem(INITIAL_TABS, *conversation));
 
 	return tag;
 }

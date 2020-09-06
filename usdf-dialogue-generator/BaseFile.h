@@ -11,6 +11,6 @@ public:
 	std::string include;
 	Conversation* conversation;
 
-	std::string tag();
+	std::string tag(bool baseTag);
 };
 
