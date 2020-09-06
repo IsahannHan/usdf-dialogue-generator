@@ -63,16 +63,20 @@ namespace FileCreation {
 			_pagesList.push_back(_page);
 
 			std::cout << "Base \"PAGE\" element #" << _pagesList.size() << " created!";
-			std::cout << "\n Proceeding to create \"IFITEM\" and \"CHOICE\" objects..." << std::endl;
+			std::cout << "\n Proceeding to create \"IFITEM\" object for this page..." << std::endl;
+
+			system("pause");
 
 			// here
+
+			_page.ifitem = &_ifItem;
+			_page.choice = &_choice;
 
 			std::cout << "\"PAGE\" element #" << _pagesList.size() << " fully created!";
 			std::cout << "Do you wish to create another \"PAGE\"? Y for yes, N for no: ";
 		}
 
 		std::cout << "Pages created!";
-		std::cout << "\n Proceeding to create \"IFITEM\" and \"CHOICE\" objects..." << std::endl;
 
 		system("pause");
 	}
@@ -105,6 +109,8 @@ namespace FileCreation {
 		system("pause");
 
 		pageCreation();
+
+		_conversation.page = &_pagesList;
 	}
 
 	void baseFileCreation() {
