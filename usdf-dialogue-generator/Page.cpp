@@ -23,23 +23,27 @@ Page::Page(std::string name, std::string panel, std::string voice, std::string d
 	this->choice = choice;
 }
 
-std::string Page::tag(int nestedTabs)
+Page::Page()
+{
+}
+
+std::string Page::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(nestedTabs);
 	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(initialTabs.append(IDENTIFIER))
-		.append(tagBracket(initialTabs, true))
+	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
+		.append(baseTag ? "" : tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(name), name))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(panel), panel))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(voice), voice))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(dialog), dialog))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(drop), drop))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(link), link))
-		.append(createSingleItem(nestedTabs, *ifitem))
-		.append(createMultipleItems(nestedTabs, *choice))
-		.append(tagBracket(initialTabs, false));
+		.append(baseTag ? "" : createSingleItem(nestedTabs, *ifitem))
+		.append(baseTag ? "" : createMultipleItems(nestedTabs, *choice))
+		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;
 }

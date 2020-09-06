@@ -16,6 +16,8 @@ public:
         Ifitem* ifitem,
         std::list<Choice>* choice);
 
+    Page();
+
     std::string name;
     std::string panel;
     std::string voice;
@@ -25,5 +27,5 @@ public:
     Ifitem* ifitem;
     std::list<Choice>* choice;
 
-    std::string tag(int nestedTabs);
+    std::string tag(int nestedTabs, bool baseTag);
 };

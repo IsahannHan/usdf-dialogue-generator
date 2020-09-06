@@ -2,46 +2,11 @@
 #include <iostream>
 #include <string>
 #include "BaseFile.h"
+#include "FileCreation.cpp"
 
 std::ofstream of_file;
 
-void dialogueCreation() {
-	// Create BaseFile
-	char satisfied{};
-	std::string nameSpace;
-	std::string include;
 
-	while (toupper(satisfied) != 'Y') {
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << "|                         CREATING FILE BASE                              |" << std::endl;
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << "Please type the \"namespace\" attribute and press enter: ";
-		std::getline(std::cin >> std::ws, nameSpace);
-
-		std::cout << "Please type the \"include\" attribute and press enter: ";
-		std::getline(std::cin >> std::ws, include);
-
-		BaseFile basefile(nameSpace, include, NULL);
-
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << "|                         REVIEW FILE BASE                                |" << std::endl;
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << basefile.tag(true) << std::endl;
-
-		std::cout << "Does this looks good? Y to continue, N to recreate: ";
-		std::cin >> satisfied;
-
-		system("cls");
-	}
-
-	std::cout << "Base file created!";
-	std::cout << "\n Proceeding to create \"Conversation\" object..." << std::endl;
-
-	// Create Conversation
-
-
-	system("pause");
-}
 
 void intro() {
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -289,7 +254,7 @@ void menu() {
 			std::cout << "---------------------------------------------------------------------------" << std::endl;
 			break;
 		case 1:
-			dialogueCreation();
+			FileCreation::dialogueCreation();
 			break;
 		case 2:
 			dialogueFields();

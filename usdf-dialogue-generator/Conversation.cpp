@@ -17,17 +17,17 @@ Conversation::Conversation(std::string actor, std::list<Page>* page)
 	this->page = page;
 }
 
-std::string Conversation::tag(int nestedTabs)
+std::string Conversation::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(nestedTabs);
 	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(initialTabs.append(IDENTIFIER))
-		.append(tagBracket(initialTabs, true))
+	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
+		.append(baseTag ? "" : tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
-		.append(createMultipleItems(nestedTabs, *page))
-		.append(tagBracket(initialTabs, false));
+		.append(baseTag ? "" : createMultipleItems(nestedTabs, *page))
+		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;
 }

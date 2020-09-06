@@ -12,6 +12,6 @@ public:
 	std::string actor;
 	std::list<Page>* page;
 
-	std::string tag(int nestedTabs);
+	std::string tag(int nestedTabs, bool baseTag);
 };
 
