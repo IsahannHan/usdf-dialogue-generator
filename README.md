@@ -6,7 +6,7 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 
 ## v1.0.0
 
-- [x] Generate a dialogue
+- [x] Generate a dialogue (based on mocked data)
 - [ ] Receive user input, and generate a dialogue from it
 
 ### Desirable stuff:
