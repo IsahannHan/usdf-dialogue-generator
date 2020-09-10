@@ -5,6 +5,8 @@ class Ifitem :
 {
 public:
     using ItemAmountBase::ItemAmountBase;
-    std::string tag(int nestedTags);
+    Ifitem();
+
+    std::string tag(int nestedTags, bool baseTag);
 };
 

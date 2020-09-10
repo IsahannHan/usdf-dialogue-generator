@@ -42,16 +42,20 @@ Choice::Choice(std::string text,
 }
 
 
-std::string Choice::tag(int nestedTabs)
+Choice::Choice()
+{
+}
+
+std::string Choice::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(nestedTabs);
 	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(initialTabs.append(IDENTIFIER))
-		.append(tagBracket(initialTabs, true))
+	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
+		.append(baseTag ? "" : tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(text), text))
-		.append(createSingleItem(nestedTabs, *cost))
+		.append(baseTag ? "" : createSingleItem(nestedTabs, *cost, baseTag))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(displaycost), displaycost))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(yesmessage), yesmessage))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(nomessage), nomessage))
@@ -65,7 +69,7 @@ std::string Choice::tag(int nestedTabs)
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(arg4), arg4))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(nextpage), nextpage))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(closedialog), closedialog))
-		.append(tagBracket(initialTabs, false));
+		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;
 }

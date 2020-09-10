@@ -39,6 +39,8 @@ public:
 	int nextpage;
 	bool closedialog;
 
-	std::string tag(int nestedTabs);
+	Choice();
+
+	std::string tag(int nestedTabs, bool baseTag);
 };
 

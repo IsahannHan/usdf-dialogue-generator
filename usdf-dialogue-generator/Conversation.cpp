@@ -23,11 +23,11 @@ std::string Conversation::tag(int nestedTabs, bool baseTag)
 	std::string initialTabs = generateInitialTabs(nestedTabs);
 	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
-		.append(baseTag ? "" : tagBracket(initialTabs, true))
+	tag.append(initialTabs.append(IDENTIFIER))
+		.append(tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
-		.append(baseTag ? "" : createMultipleItems(nestedTabs, *page))
-		.append(baseTag ? "" : tagBracket(initialTabs, false));
+		.append(createMultipleItems(nestedTabs, *page, baseTag))
+		.append(tagBracket(initialTabs, false));
 
 	return tag;
 }

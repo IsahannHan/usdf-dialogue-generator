@@ -41,8 +41,8 @@ std::string Page::tag(int nestedTabs, bool baseTag)
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(dialog), dialog))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(drop), drop))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(link), link))
-		.append(baseTag ? "" : createSingleItem(nestedTabs, *ifitem))
-		.append(baseTag ? "" : createMultipleItems(nestedTabs, *choice))
+		.append(baseTag ? "" : createSingleItem(nestedTabs, *ifitem, baseTag))
+		.append(baseTag ? "" : createMultipleItems(nestedTabs, *choice, baseTag))
 		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;

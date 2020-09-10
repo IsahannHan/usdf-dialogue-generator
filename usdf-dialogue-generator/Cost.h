@@ -6,6 +6,6 @@ class Cost :
 public:
     using ItemAmountBase::ItemAmountBase;
 
-    std::string tag(int nestedTabs);
+    std::string tag(int nestedTabs, bool baseTag);
 };
 

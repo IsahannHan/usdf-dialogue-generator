@@ -4,6 +4,7 @@ class ItemAmountBase
 {
 public:
 	ItemAmountBase(int item, int amount);
+	ItemAmountBase();
 
 	int item;
 	int amount;

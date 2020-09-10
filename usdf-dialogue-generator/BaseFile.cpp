@@ -23,7 +23,7 @@ std::string BaseFile::tag(bool baseTag)
 	tag.append(createItemWithValue(initialTabs, "namespace", nameSpace)) // Can't create variable with name 'namespace', so just send it like this lmao
 	    .append(createItemWithValue(initialTabs, GET_VARIABLE_NAME(include), include))
 		.append("\n")
-		.append(baseTag ? "" : createSingleItem(INITIAL_TABS, *conversation));
+		.append(baseTag ? "" : createSingleItem(INITIAL_TABS, *conversation, baseTag));
 
 	return tag;
 }
