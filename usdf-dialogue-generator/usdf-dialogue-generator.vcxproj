@@ -144,6 +144,7 @@
     <ClCompile Include="Conversation.cpp" />
     <ClCompile Include="Cost.cpp" />
     <ClCompile Include="FileCreation.cpp" />
+    <ClCompile Include="FileCreationHelper.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Generics.cpp" />
     <ClCompile Include="Ifitem.cpp" />
