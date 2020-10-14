@@ -17,6 +17,10 @@ Conversation::Conversation(std::string actor, std::list<Page>* page)
 	this->page = page;
 }
 
+Conversation::Conversation()
+{
+}
+
 std::string Conversation::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;

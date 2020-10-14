@@ -4,7 +4,9 @@
 #include <list>
 #include "Ifitem.h"
 #include "Choice.h"
-class Page
+#include "Element.h"
+
+class Page : public Element
 {
 public:
     Page(std::string name,

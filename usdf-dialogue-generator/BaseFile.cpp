@@ -15,7 +15,11 @@ BaseFile::BaseFile(std::string nameSpace, std::string include, Conversation* con
 	this->conversation = conversation;
 }
 
-std::string BaseFile::tag(bool baseTag)
+BaseFile::BaseFile()
+{
+}
+
+std::string BaseFile::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(INITIAL_TABS);
