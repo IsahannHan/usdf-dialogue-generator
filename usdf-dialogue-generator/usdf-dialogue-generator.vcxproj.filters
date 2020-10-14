@@ -51,7 +51,13 @@
     <ClCompile Include="FileCreation.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="FileCreationHelper.cpp">
+    <ClCompile Include="Element.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementCreation.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ElementCreationHelper.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

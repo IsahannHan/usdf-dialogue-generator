@@ -1,62 +1,80 @@
- #include <string>
- #include <iostream>
- #include <sstream>
+#include <string>
+#include <iostream>
+#include <sstream>
 
- #include "BaseFile.h"
-
+#include "BaseFile.h"
+#include "FileCreationHelper.cpp"
 
  namespace FileCreation {
- 	BaseFile _baseFile;
- 	Conversation _conversation;
- 	std::list<Page> _pagesList;
 
  	void choiceCreation(Page& page) {
- 		std::list<Choice> _choicesList;
- 		Choice _choice;
  		char satisfied{};
  		char anotherOne{};
 
+ 		std::list<Choice> _choicesList;
+
  		while (toupper(anotherOne) != 'N') {
+ 		    Choice _choice;
+
  			while (toupper(satisfied) != 'Y') {
-
-
  				std::cout << "---------------------------------------------------------------------------" << std::endl;
  				std::cout << "|                         CREATING CHOICE                                 |" << std::endl;
  				std::cout << "                        FOR PAGE " << page.name << "                       " << std::endl;
  				std::cout << "---------------------------------------------------------------------------" << std::endl;
 
+                //ElementTypes::BOOL
+
  				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
  				std::cout << "Please type the \"DISPLAYCOST\" attribute and press enter (true/false): ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"YESMESSAGE\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"NOMESSAGE\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"LOG\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"GIVEITEM\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"SPECIAL\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
+ 				std::cout << "Please type the \"ARG0\" attribute and press enter: ";
  				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
- 				std::getline(std::cin >> std::ws, _choice.text);
- 				std::cout << "Please type the \"TEXT\" attribute and press enter: ";
- 				std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"ARG1\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"ARG2\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"ARG3\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"ARG4\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"NEXTPAGE\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
+                std::cout << "Please type the \"CLOSEDIALOG\" attribute and press enter: ";
+                std::getline(std::cin >> std::ws, _choice.text);
 
- 				std::cout << "Please type the \"AMOUNT\" attribute and press enter: ";
- 				std::cin >> _ifItem.amount;
 
+                std::cout << "Does this looks good? Y to continue, N to recreate: ";
+                std::cin >> satisfied;
 
+                system("cls");
  			}
+
+            // Add page element
+
+            _choicesList.push_back(_choice);
+
+            std::cout << "\"CHOICE\" element #" << _choicesList.size() << " fully created!";
+            std::cout << "Do you wish to create another \"CHOICE\"? Y for yes, N for no: ";
  		}
+
+
+        page.choice = &_choicesList;
  	}
 
  	void ifItemCreation(Page& page) {
- 		Ifitem _ifItem;
  		char satisfied{};
+ 		Ifitem _ifItem;
 
  		while (toupper(satisfied) != 'Y') {
  			std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -84,12 +102,14 @@
 
  		page.ifitem = &_ifItem;
 
+        std::cout << "\"IFITEM\" element linked!";
+
  		system("pause");
  	}
 
- 	void pageCreation(Page& page) {
+ 	void pageCreation(Conversation& conversation) {
  		// Create MULTIPLE pages
- 		Page _page;
+        std::list<Page> _pagesList;
  		char satisfied{};
  		char anotherOne{}; // DJ KHALED
 
@@ -102,8 +122,9 @@
  			Ifitem * ifitem,
  			std::list<Choice> * choice);*/
 
- 		while (toupper(anotherOne) != 'N')
- 		{
+ 		while (toupper(anotherOne) != 'N') {
+            Page _page;
+
  			while (toupper(satisfied) != 'Y') {
  				std::cout << "---------------------------------------------------------------------------" << std::endl;
  				std::cout << "|                         CREATING PAGE                                   |" << std::endl;
@@ -133,9 +154,8 @@
  				system("cls");
  			}
 
- 			_pagesList.push_back(_page);
-
  			std::cout << "Base \"PAGE\" element #" << _pagesList.size() << " created!";
+
  			std::cout << "\n Proceeding to create \"IFITEM\" object for this PAGE..." << std::endl;
 
  			system("pause");
@@ -150,8 +170,11 @@
 
  			choiceCreation(_page);
 
- 			//_page.ifitem = _ifItem;
- 			//_page.choice = _choice;
+            system("cls");
+
+            // Add page element
+
+            _pagesList.push_back(_page);
 
  			std::cout << "\"PAGE\" element #" << _pagesList.size() << " fully created!";
  			std::cout << "Do you wish to create another \"PAGE\"? Y for yes, N for no: ";
@@ -160,6 +183,8 @@
  		std::cout << "Pages created!";
 
  		system("pause");
+
+        conversation.page = &_pagesList;
  	}
 
  	void conversationCreation(Conversation& conversation) {
@@ -190,49 +215,6 @@
  		system("pause");
 
  		pageCreation(conversation);
-
- 		conversation.page = &_pagesList;
- 	}
-
- 	void baseFileCreation() {
- 		// Create BaseFile
- 		char satisfied{};
- 		std::string nameSpace;
- 		std::string include;
- 		Conversation _conversation;
-
- 		while (toupper(satisfied) != 'Y') {
- 			std::cout << "---------------------------------------------------------------------------" << std::endl;
- 			std::cout << "|                         CREATING FILE BASE                              |" << std::endl;
- 			std::cout << "---------------------------------------------------------------------------" << std::endl;
- 			std::cout << "Please type the \"namespace\" and press enter: ";
- 			std::getline(std::cin >> std::ws, _baseFile.nameSpace);
-
- 			std::cout << "Please type the \"include\" and press enter: ";
- 			std::getline(std::cin >> std::ws, _baseFile.include);
-
- 			std::cout << "---------------------------------------------------------------------------" << std::endl;
- 			std::cout << "|                         REVIEW FILE BASE                                |" << std::endl;
- 			std::cout << "---------------------------------------------------------------------------" << std::endl;
- 			std::cout << _baseFile.tag(true) << std::endl;
-
- 			std::cout << "Does this looks good? Y to continue, N to recreate: ";
- 			std::cin >> satisfied;
-
- 			system("cls");
- 		}
-
- 		_baseFile.nameSpace = nameSpace;
- 		_baseFile.include = include;
-
- 		std::cout << "\"BASEFILE\" created!";
- 		std::cout << "\n Proceeding to create \"CONVERSATION\" object..." << std::endl;
-
- 		system("pause");
-
- 		conversationCreation(_conversation);
-
- 		_baseFile.conversation = &_conversation;
  	}
 
  	void dialogueCreation() {

@@ -143,8 +143,10 @@
     <ClCompile Include="Choice.cpp" />
     <ClCompile Include="Conversation.cpp" />
     <ClCompile Include="Cost.cpp" />
+    <ClCompile Include="Element.cpp" />
+    <ClCompile Include="ElementCreation.cpp" />
     <ClCompile Include="FileCreation.cpp" />
-    <ClCompile Include="FileCreationHelper.cpp" />
+    <ClCompile Include="ElementCreationHelper.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Generics.cpp" />
     <ClCompile Include="Ifitem.cpp" />
@@ -157,6 +159,7 @@
     <ClInclude Include="Choice.h" />
     <ClInclude Include="Conversation.h" />
     <ClInclude Include="Cost.h" />
+    <ClInclude Include="Element.h" />
     <ClInclude Include="Ifitem.h" />
     <ClInclude Include="ItemAmountBase.h" />
     <ClInclude Include="Page.h" />
