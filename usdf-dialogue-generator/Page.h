@@ -29,5 +29,7 @@ public:
     Ifitem* ifitem;
     std::list<Choice>* choice;
 
+    std::string title = "PAGE";
+
     std::string tag(int nestedTabs, bool baseTag);
 };

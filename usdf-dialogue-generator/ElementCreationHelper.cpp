@@ -9,24 +9,27 @@ namespace utils_element_creation_helper {
 
 	enum class ElementTypes { STRING, INTEGER, BOOL };
 
-	std::string createElement(std::string element, ElementTypes elementType) {
+	bool createElementBoolean(std::string element) {
+		std::cout << "Please type the " << element << " attribute and press enter: ";
+
+		return inputBoolean();
+	}
+
+	int createElementInteger(std::string element) {
+		return std::stoi(createElementString(element));
+	}
+
+	std::string createElementString(std::string element) {
 		std::string elementValue;
 
 		std::cout << "Please type the " << element << " attribute and press enter: ";
 
-		switch (elementType) {
-		case ElementTypes::STRING:
-			std::getline(std::cin >> std::ws, elementValue);
-		case ElementTypes::INTEGER:
-			std::cin >> elementValue;
-		case ElementTypes::BOOL:
-			elementValue = boolToString(inputBoolean());
-		}
+		std::getline(std::cin >> std::ws, elementValue);
 
 		return elementValue;
 	}
 
-	void creatingElementTitle(Element::Elements title) {
+	void creatingElementTitle(std::string title) {
 		std::cout << "---------------------------------------------------------------------------" << std::endl;
 		std::cout << "                         CREATING "<< title <<"                            " << std::endl;
 		std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -39,6 +42,13 @@ namespace utils_element_creation_helper {
 		std::cout << element.tag(0, true) << std::endl;
 
 		std::cout << "Does this looks good? Y to continue, N to recreate: ";
+
+		return inputBoolean();
+	}
+
+	bool anotherElementRequested(Element element, int index) {
+		std::cout << "\"" << element.title << "\" element #" << index << " fully created!";
+		std::cout << "Do you wish to create another \"" << element.title << "\"? Y for yes, N for no: ";
 
 		return inputBoolean();
 	}
@@ -60,10 +70,6 @@ namespace utils_element_creation_helper {
 		}
 
 		return toupper(b) == 'Y' ? true : false;
-	}
-
-	std::string boolToString(bool b) {
-		return b ? "true" : "false";
 	}
 
 }

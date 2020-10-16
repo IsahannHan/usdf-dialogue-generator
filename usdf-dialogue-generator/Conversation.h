@@ -13,6 +13,8 @@ public:
 	std::string actor;
 	std::list<Page>* page;
 
+	std::string title = "CONVERSATION";
+
 	std::string tag(int nestedTabs, bool baseTag);
 };
 

@@ -4,7 +4,7 @@
 
 #include <string>
 
-class Choice
+class Choice : public Element
 {
 public:
 	Choice(std::string text,
@@ -40,6 +40,8 @@ public:
 	bool closedialog;
 
 	Choice();
+
+	std::string title = "CHOICE";
 
 	std::string tag(int nestedTabs, bool baseTag);
 };
