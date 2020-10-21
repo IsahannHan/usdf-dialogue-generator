@@ -3,170 +3,161 @@
 #include <iostream>
 #include <sstream>
 
-#include "ElementCreationHelper.cpp"
+#include "ElementCreation.h"
+#include "ElementCreationHelper.h"
 
-#include "Conversation.h"
-#include "BaseFile.h"
+BaseFile ElementCreation::baseFileCreation() {
+	BaseFile _baseFile = BaseFile();
 
-using namespace utils_element_creation_helper;
+	do {
+		system("cls");
 
-namespace utils_element_creation {
+		ElementCreationHelper::creatingElementTitle(_baseFile.title);
 
-	BaseFile baseFileCreation() {
-		BaseFile _baseFile = BaseFile();
+		_baseFile.nameSpace = ElementCreationHelper::createElementString("NAMESPACE");
+		_baseFile.include = ElementCreationHelper::createElementString("INCLUDE");
 
-		do {
-			creatingElementTitle(_baseFile.title);
+	} while (!ElementCreationHelper::satisfiedWithElement(_baseFile));
 
-			_baseFile.nameSpace = createElementString("NAMESPACE");
-			_baseFile.include = createElementString("INCLUDE");
+	conversationCreation(_baseFile); // Next: CONVERSATION
 
-		} while (!satisfiedWithElement(_baseFile));
-
-		proceedNestedElementCreation(_baseFile); // Next: CONVERSATION
-
-		return _baseFile;
-	}
-
-	void conversationCreation(BaseFile& baseFile) {
-		// Create conversation, and link it to the current baseFile
-
-		Conversation _conversation = Conversation();
-
-		do {
-			creatingElementTitle(_conversation.title);
-
-			_conversation.actor = createElementString("ACTOR");
-
-		} while (!satisfiedWithElement(_conversation));
-
-		proceedNestedElementCreation(_conversation); // Next: PAGE
-
-		// Link to parent
-
-		baseFile.conversation = &_conversation;
-	}
-
-	void pageCreation(Conversation& conversation) {
-		// Create pages, and link it to the current conversation
-
-		std::list<Page> _pagesList;
-		Page _page;
-
-		do {
-			_page = Page();
-
-			do {
-				creatingElementTitle(_page.title);
-
-				_page.name = createElementString("NAME");
-				_page.panel = createElementString("PANEL");
-				_page.voice = createElementString("VOICE");
-				_page.dialog = createElementString("DIALOG");
-				_page.drop = createElementInteger("DROP");
-				_page.link = createElementInteger("LINK");
-
-			} while (!satisfiedWithElement(_page));
-
-			proceedNestedElementCreation(_page); // Next element: IFITEM and CHOICE 
-
-			_pagesList.push_back(_page);
-
-		} while (anotherElementRequested(_page, _pagesList.size()));
-
-		conversation.page = &_pagesList;
-	}
-
-	void ifItemCreation(Page& page) {
-		// Create ifitem, and link it to the current page
-
-		Ifitem _ifItem = Ifitem();
-
-		do {
-			creatingElementTitle(_ifItem.title);
-
-			_ifItem.item = createElementInteger("ITEM");
-			_ifItem.amount = createElementInteger("AMOUNT");
-
-		} while (!satisfiedWithElement(_ifItem));
-
-		page.ifitem = &_ifItem;
-	}
-
-	void choiceCreation(Page& page) {
-
-		std::list<Choice> _choicesList;
-		Choice _choice;
-
-		do {
-			_choice = Choice();
-
-			do {
-				creatingElementTitle(_choice.title);
-
-				_choice.text = createElementString("TEXT");
-				_choice.displaycost = createElementBoolean("DISPLAYCOST");
-				_choice.yesmessage = createElementString("YESMESSAGE");
-				_choice.nomessage = createElementString("NOMESSAGE");
-				_choice.log = createElementString("LOG");
-				_choice.giveitem = createElementInteger("GIVEITEM");
-				_choice.special = createElementInteger("SPECIAL");
-				_choice.arg0 = createElementInteger("ARG0");
-				_choice.arg1 = createElementInteger("ARG1");
-				_choice.arg2 = createElementInteger("ARG2");
-				_choice.arg3 = createElementInteger("ARG3");
-				_choice.arg4 = createElementInteger("ARG4");
-				_choice.nextpage = createElementInteger("NEXTPAGE");
-				_choice.closedialog = createElementBoolean("CLOSEDIALOG");
-
-			} while (!satisfiedWithElement(_choice));
-
-			proceedNestedElementCreation(_choice); // Next element: COST 
-
-			_choicesList.push_back(_choice);
-
-		} while (anotherElementRequested(_choice, _choicesList.size()));
-
-		page.choice = &_choicesList;
-	}
-
-	void costCreation(Choice& choice) {
-		// Create cost, and link it to the current choice
-
-		Cost _cost = Cost();
-
-		do {
-			creatingElementTitle(_cost.title);
-
-			_cost.item = createElementInteger("ITEM");
-			_cost.amount = createElementInteger("AMOUNT");
-
-		} while (!satisfiedWithElement(_cost));
-
-		choice.cost = &_cost;
-	}
-
-	// Utils
-
-	void proceedNestedElementCreation(Element& currentElement) {
-
-		std::cout << "\"" << currentElement.title << "\" created!";
-
-		if (currentElement.title == "BASEFILE") {
-			std::cout << "\n Proceeding to create " << "CONVERSATION" << " object..." << std::endl;
-			conversationCreation(static_cast<BaseFile&>(currentElement));
-		} else if (currentElement.title == "CONVERSATION") {
-			std::cout << "\n Proceeding to create " << "PAGE" << " object..." << std::endl;
-			pageCreation(static_cast<Conversation&>(currentElement));
-		} else if (currentElement.title == "PAGE") {
-			std::cout << "\n Proceeding to create " << "IFITEM" << " object..." << std::endl;
-			ifItemCreation(static_cast<Page&>(currentElement));
-
-			std::cout << "\n Proceeding to create " << "CHOICE" << " object..." << std::endl;
-			choiceCreation(static_cast<Page&>(currentElement));
-		} else if (currentElement.title == "CHOICE") {
-			std::cout << "\n Proceeding to create " << "COST" << " object..." << std::endl;
-			costCreation(static_cast<Choice&>(currentElement));
-		}
-	}
+	return _baseFile;
 }
+
+void ElementCreation::conversationCreation(BaseFile& baseFile) {
+	// Create conversation, and link it to the current baseFile
+
+	Conversation _conversation = Conversation();
+
+	do {
+		system("cls");
+
+		ElementCreationHelper::creatingElementTitle(_conversation.title);
+
+		_conversation.actor = ElementCreationHelper::createElementString("ACTOR");
+
+	} while (!ElementCreationHelper::satisfiedWithElement(_conversation));
+
+	pageCreation(_conversation); // Next: PAGE
+
+	// Link to parent
+
+	baseFile.conversation = &_conversation;
+}
+
+void ElementCreation::pageCreation(Conversation& conversation) {
+	// Create pages, and link it to the current conversation
+
+	std::list<Page> _pagesList;
+	Page _page;
+
+	do {
+		_page = Page();
+
+		do {
+			system("cls");
+
+			ElementCreationHelper::creatingElementTitle(_page.title);
+
+			_page.name = ElementCreationHelper::createElementString("NAME");
+			_page.panel = ElementCreationHelper::createElementString("PANEL");
+			_page.voice = ElementCreationHelper::createElementString("VOICE");
+			_page.dialog = ElementCreationHelper::createElementString("DIALOG");
+			_page.drop = ElementCreationHelper::createElementInteger("DROP");
+			_page.link = ElementCreationHelper::createElementInteger("LINK");
+
+		} while (!ElementCreationHelper::satisfiedWithElement(_page));
+
+
+		ifItemCreation(_page);
+		choiceCreation(_page); // Next element: IFITEM and CHOICE 
+
+		_pagesList.push_back(_page);
+
+	} while (ElementCreationHelper::anotherElementRequested(_page, _pagesList.size()));
+
+	conversation.page = &_pagesList;
+}
+
+void ElementCreation::ifItemCreation(Page& page) {
+	// Create ifitem, and link it to the current page
+
+	Ifitem _ifItem = Ifitem();
+
+	do {
+		system("cls");
+
+		ElementCreationHelper::creatingElementTitle(_ifItem.title);
+
+		_ifItem.item = ElementCreationHelper::createElementInteger("ITEM");
+		_ifItem.amount = ElementCreationHelper::createElementInteger("AMOUNT");
+
+	} while (!ElementCreationHelper::satisfiedWithElement(_ifItem));
+
+	page.ifitem = &_ifItem;
+}
+
+void ElementCreation::choiceCreation(Page& page) {
+
+	std::list<Choice> _choicesList;
+	Choice _choice;
+
+	do {
+		_choice = Choice();
+
+		do {
+			system("cls");
+
+			ElementCreationHelper::creatingElementTitle(_choice.title);
+
+			_choice.text = ElementCreationHelper::createElementString("TEXT");
+			_choice.displaycost = ElementCreationHelper::createElementBoolean("DISPLAYCOST");
+			_choice.yesmessage = ElementCreationHelper::createElementString("YESMESSAGE");
+			_choice.nomessage = ElementCreationHelper::createElementString("NOMESSAGE");
+			_choice.log = ElementCreationHelper::createElementString("LOG");
+			_choice.giveitem = ElementCreationHelper::createElementInteger("GIVEITEM");
+			_choice.special = ElementCreationHelper::createElementInteger("SPECIAL");
+			_choice.arg0 = ElementCreationHelper::createElementInteger("ARG0");
+			_choice.arg1 = ElementCreationHelper::createElementInteger("ARG1");
+			_choice.arg2 = ElementCreationHelper::createElementInteger("ARG2");
+			_choice.arg3 = ElementCreationHelper::createElementInteger("ARG3");
+			_choice.arg4 = ElementCreationHelper::createElementInteger("ARG4");
+			_choice.nextpage = ElementCreationHelper::createElementInteger("NEXTPAGE");
+			_choice.closedialog = ElementCreationHelper::createElementBoolean("CLOSEDIALOG");
+
+		} while (!ElementCreationHelper::satisfiedWithElement(_choice));
+
+
+		costCreation(_choice); // Next element: COST 
+
+		_choicesList.push_back(_choice);
+
+	} while (ElementCreationHelper::anotherElementRequested(_choice, _choicesList.size()));
+
+	page.choice = &_choicesList;
+}
+
+void ElementCreation::costCreation(Choice& choice) {
+	// Create cost, and link it to the current choice
+
+	Cost _cost = Cost();
+
+	do {
+		system("cls");
+
+		ElementCreationHelper::creatingElementTitle(_cost.title);
+
+		_cost.item = ElementCreationHelper::createElementInteger("ITEM");
+		_cost.amount = ElementCreationHelper::createElementInteger("AMOUNT");
+
+	} while (!ElementCreationHelper::satisfiedWithElement(_cost));
+
+	choice.cost = &_cost;
+}
+
+// Utils
+
+void ElementCreation::proceedNestedElementCreation(Element& currentElement) {
+
+}
+

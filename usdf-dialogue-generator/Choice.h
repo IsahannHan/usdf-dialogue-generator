@@ -1,6 +1,7 @@
 #pragma once
 #include "ItemAmountBase.h"
 #include "Cost.h"
+#include "Element.h"
 
 #include <string>
 

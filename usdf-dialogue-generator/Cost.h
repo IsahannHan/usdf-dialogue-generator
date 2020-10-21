@@ -1,5 +1,7 @@
 #pragma once
 #include "ItemAmountBase.h"
+#include "Element.h"
+
 class Cost :
     public Element,
     public ItemAmountBase

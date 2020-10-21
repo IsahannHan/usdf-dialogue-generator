@@ -160,6 +160,9 @@
     <ClInclude Include="Conversation.h" />
     <ClInclude Include="Cost.h" />
     <ClInclude Include="Element.h" />
+    <ClInclude Include="ElementCreation.h" />
+    <ClInclude Include="ElementCreationHelper.h" />
+    <ClInclude Include="FileCreation.h" />
     <ClInclude Include="Ifitem.h" />
     <ClInclude Include="ItemAmountBase.h" />
     <ClInclude Include="Page.h" />

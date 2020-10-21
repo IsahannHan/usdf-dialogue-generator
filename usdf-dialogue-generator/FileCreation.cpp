@@ -1,18 +1,16 @@
 #include <fstream>
 #include <iostream>
 
-#include "ElementCreation.cpp"
-using namespace utils_element_creation;
+#include "FileCreation.h"
+#include "ElementCreation.h"
 
-std::ofstream ofs_generated_file;
+void FileCreation::dialogueCreation() {
+	std::ofstream ofs_generated_file;
+	ElementCreation creation;
 
- namespace FileCreation {
+	ofs_generated_file.open("generated_dialogue.txt", std::ios::out);
 
- 	void dialogueCreation() {
-        ofs_generated_file.open("generated_dialogue.txt", std::ios::out);
+	ofs_generated_file << creation.baseFileCreation().tag(0, false) << std::endl;
 
- 		ofs_generated_file << baseFileCreation().tag(0, false) << std::endl;
-
-        std::cout << "FILE GENERATED!" << std::endl;
- 	}
- }
+	std::cout << "FILE GENERATED!" << std::endl;
+}

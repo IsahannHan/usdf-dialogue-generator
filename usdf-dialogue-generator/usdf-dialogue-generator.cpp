@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include "BaseFile.h"
-#include "FileCreation.cpp"
+#include "FileCreation.h"
 
 std::ofstream of_file;
 

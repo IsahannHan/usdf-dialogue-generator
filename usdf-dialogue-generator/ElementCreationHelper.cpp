@@ -4,72 +4,68 @@
 #include <sstream>
 
 #include "Element.h"
+#include "ElementCreationHelper.h"
 
-namespace utils_element_creation_helper {
+enum class ElementTypes { STRING, INTEGER, BOOL };
 
-	enum class ElementTypes { STRING, INTEGER, BOOL };
+bool ElementCreationHelper::inputBoolean() {
+	char b;
 
-	bool createElementBoolean(std::string element) {
-		std::cout << "Please type the " << element << " attribute and press enter: ";
+	while (true) {
+		std::cin >> b;
 
-		return inputBoolean();
+		bool validYes = b == 'y' || b == 'Y';
+		bool validNo = b == 'n' || b == 'N';
+
+		if (!validYes && !validNo)
+			std::cout << "Invalid boolean! Please type y/n (Yes/No): ";
+		else
+			return validYes ? true : false;
 	}
+}
 
-	int createElementInteger(std::string element) {
-		return std::stoi(createElementString(element));
-	}
+// Input receivers
 
-	std::string createElementString(std::string element) {
-		std::string elementValue;
+std::string ElementCreationHelper::createElementString(std::string element) {
+	std::string elementValue;
 
-		std::cout << "Please type the " << element << " attribute and press enter: ";
+	std::cout << "Please type the " << element << " attribute and press enter: ";
 
-		std::getline(std::cin >> std::ws, elementValue);
+	std::getline(std::cin >> std::ws, elementValue);
 
-		return elementValue;
-	}
+	return elementValue;
+}
 
-	void creatingElementTitle(std::string title) {
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << "                         CREATING "<< title <<"                            " << std::endl;
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-	}
+bool ElementCreationHelper::createElementBoolean(std::string element) {
+	std::cout << "Please type the " << element << " attribute and press enter: ";
 
-	bool satisfiedWithElement(Element element) {
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << "                         REVIEW "<< element.title <<"                      " << std::endl;
-		std::cout << "---------------------------------------------------------------------------" << std::endl;
-		std::cout << element.tag(0, true) << std::endl;
+	return inputBoolean();
+}
 
-		std::cout << "Does this looks good? Y to continue, N to recreate: ";
+int ElementCreationHelper::createElementInteger(std::string element) {
+	return std::stoi(createElementString(element));
+}
 
-		return inputBoolean();
-	}
+void ElementCreationHelper::creatingElementTitle(std::string title) {
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << "                         CREATING " << title << "                            " << std::endl;
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+}
 
-	bool anotherElementRequested(Element element, int index) {
-		std::cout << "\"" << element.title << "\" element #" << index << " fully created!";
-		std::cout << "Do you wish to create another \"" << element.title << "\"? Y for yes, N for no: ";
+bool ElementCreationHelper::satisfiedWithElement(Element element) {
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << "                         REVIEW " << element.title << "                      " << std::endl;
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << element.tag(0, true) << std::endl;
 
-		return inputBoolean();
-	}
+	std::cout << "Does this looks good? Y to continue, N to recreate: ";
 
-	/*
-		Helping with booleans
-	*/
+	return inputBoolean();
+}
 
-	bool inputBoolean() {
-		char b;
+bool ElementCreationHelper::anotherElementRequested(Element element, int index) {
+	std::cout << "\"" << element.title << "\" element #" << index << " fully created!";
+	std::cout << "Do you wish to create another \"" << element.title << "\"? Y for yes, N for no: ";
 
-		while (true) {
-			std::cin >> b;
-
-			if (toupper(b) != 'Y' || toupper(b) != 'Y')
-				std::cout << "Invalid boolean! Please type y/n (Yes/No): ";
-			else
-				break;
-		}
-
-		return toupper(b) == 'Y' ? true : false;
-	}
-
+	return inputBoolean();
 }
