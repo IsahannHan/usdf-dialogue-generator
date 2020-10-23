@@ -7,7 +7,7 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 - [x] Generate a dialogue (based on mocked data)
     - [x] Fix "IFITEM" tag to create multiple
 - [x] Receive user input, and generate a dialogue from it
-    - [] Fix bugs related to it (WIP)
+    - [ ] Fix bugs related to it (WIP)
 - [ ] Create the same project for the ZSDF format
 
 ### Desirable stuff:
