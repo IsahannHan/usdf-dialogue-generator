@@ -4,7 +4,7 @@
 
 #define GET_VARIABLE_NAME(v) (#v)
 
-int INITIAL_TABS = -1;
+int INITIAL_TABS = 0;
 
 using namespace utils_functions;
 

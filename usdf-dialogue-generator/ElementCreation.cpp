@@ -54,6 +54,8 @@ void ElementCreation::pageCreation(Conversation* conversation) {
 	do {
 		_page = Page();
 
+		system("cls");
+
 		do {
 			system("cls");
 
@@ -104,6 +106,8 @@ void ElementCreation::choiceCreation(Page* page) {
 
 	do {
 		_choice = Choice();
+
+		system("cls");
 
 		do {
 			system("cls");

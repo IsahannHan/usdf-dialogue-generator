@@ -12,5 +12,11 @@ void FileCreation::dialogueCreation() {
 
 	ofs_generated_file << creation.baseFileCreation().tag(0, false) << std::endl;
 
-	std::cout << "FILE GENERATED!" << std::endl;
+	system("cls");
+	std::cout << "-------------------------------------------------------------------------------" << std::endl;
+	std::cout << "                             FILE GENERATED!                                   " << std::endl;
+	std::cout << "    The dialogue file can be found at the same directory with this program.    " << std::endl;
+	std::cout << "-------------------------------------------------------------------------------" << std::endl;
+	system("pause");
 }
+
