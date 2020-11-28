@@ -17,7 +17,7 @@ BaseFile ElementCreation::baseFileCreation() {
 		_baseFile.nameSpace = ElementCreationHelper::createElementString("NAMESPACE");
 		_baseFile.include = ElementCreationHelper::createElementString("INCLUDE");
 
-	} while (!ElementCreationHelper::satisfiedWithElement(_baseFile));
+	} while (!ElementCreationHelper::satisfiedWithElement(_baseFile.title, _baseFile.tag(0, true)));
 
 	conversationCreation(_baseFile); // Next: CONVERSATION
 
@@ -36,7 +36,7 @@ void ElementCreation::conversationCreation(BaseFile& baseFile) {
 
 		_conversation.actor = ElementCreationHelper::createElementString("ACTOR");
 
-	} while (!ElementCreationHelper::satisfiedWithElement(_conversation));
+	} while (!ElementCreationHelper::satisfiedWithElement(_conversation.title, _conversation.tag(0, true)));
 
 	pageCreation(_conversation); // Next: PAGE
 
@@ -66,7 +66,7 @@ void ElementCreation::pageCreation(Conversation& conversation) {
 			_page.drop = ElementCreationHelper::createElementInteger("DROP");
 			_page.link = ElementCreationHelper::createElementInteger("LINK");
 
-		} while (!ElementCreationHelper::satisfiedWithElement(_page));
+		} while (!ElementCreationHelper::satisfiedWithElement(_page.title, _page.tag(0, true)));
 
 
 		ifItemCreation(_page);
@@ -74,7 +74,7 @@ void ElementCreation::pageCreation(Conversation& conversation) {
 
 		_pagesList.push_back(_page);
 
-	} while (ElementCreationHelper::anotherElementRequested(_page, _pagesList.size()));
+	} while (ElementCreationHelper::anotherElementRequested(_page.title, _pagesList.size()));
 
 	conversation.page = &_pagesList;
 }
@@ -92,7 +92,7 @@ void ElementCreation::ifItemCreation(Page& page) {
 		_ifItem.item = ElementCreationHelper::createElementInteger("ITEM");
 		_ifItem.amount = ElementCreationHelper::createElementInteger("AMOUNT");
 
-	} while (!ElementCreationHelper::satisfiedWithElement(_ifItem));
+	} while (!ElementCreationHelper::satisfiedWithElement(_ifItem.title, _ifItem.tag(0, true)));
 
 	page.ifitem = &_ifItem;
 }
@@ -125,14 +125,14 @@ void ElementCreation::choiceCreation(Page& page) {
 			_choice.nextpage = ElementCreationHelper::createElementInteger("NEXTPAGE");
 			_choice.closedialog = ElementCreationHelper::createElementBoolean("CLOSEDIALOG");
 
-		} while (!ElementCreationHelper::satisfiedWithElement(_choice));
+		} while (!ElementCreationHelper::satisfiedWithElement(_choice.title, _choice.tag(0, true)));
 
 
 		costCreation(_choice); // Next element: COST 
 
 		_choicesList.push_back(_choice);
 
-	} while (ElementCreationHelper::anotherElementRequested(_choice, _choicesList.size()));
+	} while (ElementCreationHelper::anotherElementRequested(_choice.title, _choicesList.size()));
 
 	page.choice = &_choicesList;
 }
@@ -150,7 +150,7 @@ void ElementCreation::costCreation(Choice& choice) {
 		_cost.item = ElementCreationHelper::createElementInteger("ITEM");
 		_cost.amount = ElementCreationHelper::createElementInteger("AMOUNT");
 
-	} while (!ElementCreationHelper::satisfiedWithElement(_cost));
+	} while (!ElementCreationHelper::satisfiedWithElement(_cost.title, _cost.tag(0, true)));
 
 	choice.cost = &_cost;
 }

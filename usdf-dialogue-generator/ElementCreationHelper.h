@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Element.h"
+#include "BaseFile.h"
 
 class ElementCreationHelper
 {
@@ -16,7 +17,7 @@ public:
 
 	static void creatingElementTitle(std::string title);
 
-	static bool satisfiedWithElement(Element element);
+	static bool satisfiedWithElement(std::string title, std::string tag);
 
-	static bool anotherElementRequested(Element element, int index);
+	static bool anotherElementRequested(std::string elementTitle, int index);
 };

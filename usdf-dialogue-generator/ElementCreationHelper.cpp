@@ -5,6 +5,7 @@
 
 #include "Element.h"
 #include "ElementCreationHelper.h"
+#include "BaseFile.h"
 
 enum class ElementTypes { STRING, INTEGER, BOOL };
 
@@ -52,20 +53,20 @@ void ElementCreationHelper::creatingElementTitle(std::string title) {
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
 }
 
-bool ElementCreationHelper::satisfiedWithElement(Element element) {
+bool ElementCreationHelper::satisfiedWithElement(std::string title, std::string tag) {
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
-	std::cout << "                         REVIEW " << element.title << "                      " << std::endl;
+	std::cout << "                         REVIEW " << title << "                      " << std::endl;
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
-	std::cout << element.tag(0, true) << std::endl;
+	std::cout << tag << std::endl;
 
 	std::cout << "Does this looks good? Y to continue, N to recreate: ";
 
 	return inputBoolean();
 }
 
-bool ElementCreationHelper::anotherElementRequested(Element element, int index) {
-	std::cout << "\"" << element.title << "\" element #" << index << " fully created!";
-	std::cout << "Do you wish to create another \"" << element.title << "\"? Y for yes, N for no: ";
+bool ElementCreationHelper::anotherElementRequested(std::string elementTitle, int index) {
+	std::cout << "\"" << elementTitle << "\" element #" << index << " fully created!";
+	std::cout << "Do you wish to create another \"" << elementTitle << "\"? Y for yes, N for no: ";
 
 	return inputBoolean();
 }
