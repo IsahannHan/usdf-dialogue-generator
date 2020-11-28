@@ -1,12 +1,9 @@
-﻿#include <fstream>
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 
 #include "FileCreation.h"
 
-std::ofstream of_file;
-
- void intro() {
+ void about() {
     std::cout << "---------------------------------------------------------------------------" << std::endl;
     std::cout << "|                                 ABOUT                                   |" << std::endl;
     std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -259,7 +256,7 @@ std::ofstream of_file;
  			dialogueFields();
  			break;
  		case 3:
- 			intro();
+ 			about();
  			break;
  		default:
  			std::cout << "---------------------------------------------------------------------------" << std::endl;
@@ -271,4 +268,10 @@ std::ofstream of_file;
  			break;
  		}
  	}
+ }
+
+ int main(void)
+ {
+     about();
+     menu();
  }
