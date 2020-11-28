@@ -7,8 +7,6 @@
 class ElementCreationHelper
 {
 public:
-	static bool inputBoolean();
-
 	static bool createElementBoolean(std::string element);
 
 	static int createElementInteger(std::string element);

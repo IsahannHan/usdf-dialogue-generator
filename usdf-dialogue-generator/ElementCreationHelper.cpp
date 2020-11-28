@@ -9,7 +9,7 @@
 
 enum class ElementTypes { STRING, INTEGER, BOOL };
 
-bool ElementCreationHelper::inputBoolean() {
+bool inputBoolean() {
 	char b;
 
 	while (true) {
@@ -25,26 +25,48 @@ bool ElementCreationHelper::inputBoolean() {
 	}
 }
 
-// Input receivers
+bool checkValidNumber(const std::string& s) {
+	return !s.empty() && std::find_if(s.begin(),
+		s.end(), [](unsigned char c) { return !std::isdigit(c); }) == s.end();
+}
 
-std::string ElementCreationHelper::createElementString(std::string element) {
+std::string createElementBase(std::string element) {
 	std::string elementValue;
-
-	std::cout << "Please type the " << element << " attribute and press enter: ";
 
 	std::getline(std::cin >> std::ws, elementValue);
 
 	return elementValue;
 }
 
+// Input receivers
+
 bool ElementCreationHelper::createElementBoolean(std::string element) {
-	std::cout << "Please type the " << element << " attribute and press enter: ";
+	std::cout << "Please type the " << element << " attribute and press enter [Y/N]: ";
 
 	return inputBoolean();
 }
 
 int ElementCreationHelper::createElementInteger(std::string element) {
-	return std::stoi(createElementString(element));
+	std::cout << "Please type the " << element << " attribute and press enter [NUMERIC VALUE]: ";
+
+	std::string value;
+
+	while (true) {
+		value = createElementBase(element);
+
+		if (!checkValidNumber(value))
+			std::cout << "Invalid number! Please input only numeric values: ";
+		else
+			break;
+	}
+
+	return std::stoi(value);
+}
+
+std::string ElementCreationHelper::createElementString(std::string element) {
+	std::cout << "Please type the " << element << " attribute and press enter [TEXT]: ";
+
+	return createElementBase(element);
 }
 
 void ElementCreationHelper::creatingElementTitle(std::string title) {
