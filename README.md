@@ -3,11 +3,10 @@
 A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/blob/master/specs/usdf.txt) and [ZSDF](https://github.com/coelckers/gzdoom/blob/master/specs/usdf_zdoom.txt).
 
 ## v1.0 [RELEASED]
-
 - Includes the dialogue generator for the USDF format _only_.
 
-## v2.0 [WIP]
-
+## v2.0
+Currently **WIP**
 - Includes generators for both dialogue types.
 
 #### Ideas
