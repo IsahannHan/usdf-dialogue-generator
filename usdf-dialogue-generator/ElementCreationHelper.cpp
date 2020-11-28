@@ -7,8 +7,6 @@
 #include "ElementCreationHelper.h"
 #include "BaseFile.h"
 
-enum class ElementTypes { STRING, INTEGER, BOOL };
-
 bool inputBoolean() {
 	char b;
 
@@ -19,7 +17,7 @@ bool inputBoolean() {
 		bool validNo = b == 'n' || b == 'N';
 
 		if (!validYes && !validNo)
-			std::cout << ">>> INVALID VALUE! Please type y/n (Yes/No): ";
+			std::cout << ">>> INVALID VALUE! Please type Y or N (Yes/No): ";
 		else
 			return validYes ? true : false;
 	}
@@ -41,13 +39,13 @@ std::string createElementBase(std::string element) {
 // Input receivers
 
 bool ElementCreationHelper::createElementBoolean(std::string element) {
-	std::cout << "Please type the " << element << " attribute and press enter [Y/N]: ";
+	std::cout << "> Please type the " << element << " attribute and press enter [Y/N]: ";
 
 	return inputBoolean();
 }
 
 int ElementCreationHelper::createElementInteger(std::string element) {
-	std::cout << "Please type the " << element << " attribute and press enter [NUMERIC VALUE]: ";
+	std::cout << "> Please type the " << element << " attribute and press enter [NUMERIC VALUE]: ";
 
 	std::string value;
 
@@ -64,7 +62,7 @@ int ElementCreationHelper::createElementInteger(std::string element) {
 }
 
 std::string ElementCreationHelper::createElementString(std::string element) {
-	std::cout << "Please type the " << element << " attribute and press enter [TEXT]: ";
+	std::cout << "> Please type the " << element << " attribute and press enter [TEXT]: ";
 
 	return createElementBase(element);
 }
@@ -81,7 +79,7 @@ bool ElementCreationHelper::satisfiedWithElement(std::string title, std::string 
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
 	std::cout << tag << std::endl;
 
-	std::cout << "Does this looks good? Y to continue, N to recreate: ";
+	std::cout << "> Does this looks good? Y to continue, N to recreate: ";
 
 	return inputBoolean();
 }
@@ -90,7 +88,7 @@ bool ElementCreationHelper::anotherElementRequested(std::string elementTitle, in
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
 	std::cout << "          \"" << elementTitle << "\" ELEMENT #" << index << " CREATED!     " << std::endl;
 	std::cout << "---------------------------------------------------------------------------" << std::endl;
-	std::cout << "Do you wish to create another \"" << elementTitle << "\"? Y for yes, N for no: ";
+	std::cout << "> Do you wish to create another \"" << elementTitle << "\"? [Y/N]: ";
 
 	return inputBoolean();
 }

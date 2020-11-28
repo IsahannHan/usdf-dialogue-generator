@@ -1,0 +1,44 @@
+namespace = "hi"; 
+include = "sex"; 
+
+conversation
+{
+	actor = "hello"; 
+	page
+	{
+		name = "so"; 
+		panel = "you"; 
+		voice = "think"; 
+		dialog = "you"; 
+		drop = 34; 
+		link = 66; 
+		ifitem
+		{
+			item = 3; 
+			amount = 4; 
+		}
+		choice
+		{
+			text = "hehehe"; 
+			cost
+			{
+				item = 3; 
+				amount = 2; 
+			}
+			displaycost = false; 
+			yesmessage = "yes"; 
+			nomessage = "oojo"; 
+			log = "hehhee"; 
+			giveitem = 8; 
+			special = 4; 
+			arg0 = 3; 
+			arg1 = 2; 
+			arg2 = 11; 
+			arg3 = 4343; 
+			arg4 = 555; 
+			nextpage = 667; 
+			closedialog = false; 
+		}
+	}
+}
+

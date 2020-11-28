@@ -70,12 +70,12 @@ void ElementCreation::pageCreation(Conversation* conversation) {
 
 		} while (!ElementCreationHelper::satisfiedWithElement(_page.title, _page.tag(0, true)));
 
-
 		ifItemCreation(&_page);
 		choiceCreation(&_page); // Next element: IFITEM and CHOICE 
 
 		_pagesList.push_back(_page);
 
+		system("cls");
 	} while (ElementCreationHelper::anotherElementRequested(_page.title, _pagesList.size()));
 
 	conversation->page = _pagesList;
@@ -135,6 +135,7 @@ void ElementCreation::choiceCreation(Page* page) {
 
 		_choicesList.push_back(_choice);
 
+		system("cls");
 	} while (ElementCreationHelper::anotherElementRequested(_choice.title, _choicesList.size()));
 
 	page->choice = _choicesList;
