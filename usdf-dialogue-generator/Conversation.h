@@ -7,11 +7,11 @@
 class Conversation : public Element
 {
 public:
-	Conversation(std::string actor, std::list<Page>* page);
+	Conversation(std::string actor, std::list<Page> page);
 	Conversation();
 
 	std::string actor;
-	std::list<Page>* page;
+	std::list<Page> page;
 
 	std::string title = "CONVERSATION";
 

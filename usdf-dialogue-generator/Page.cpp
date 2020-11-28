@@ -11,7 +11,7 @@ using namespace utils_functions;
 
 constexpr auto IDENTIFIER = "page";
 
-Page::Page(std::string name, std::string panel, std::string voice, std::string dialog, int drop, int link, Ifitem* ifitem, std::list<Choice>* choice)
+Page::Page(std::string name, std::string panel, std::string voice, std::string dialog, int drop, int link, Ifitem ifitem, std::list<Choice> choice)
 {
 	this->name = name;
 	this->panel = panel;
@@ -41,8 +41,8 @@ std::string Page::tag(int nestedTabs, bool baseTag)
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(dialog), dialog))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(drop), drop))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(link), link))
-		.append(baseTag ? "" : createSingleItem(nestedTabs, *ifitem, baseTag))
-		.append(baseTag ? "" : createMultipleItems(nestedTabs, *choice, baseTag))
+		.append(baseTag ? "" : createSingleItem(nestedTabs, ifitem, baseTag))
+		.append(baseTag ? "" : createMultipleItems(nestedTabs, choice, baseTag))
 		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;

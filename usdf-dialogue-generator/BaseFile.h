@@ -6,7 +6,7 @@
 class BaseFile : public Element
 {
 public:
-	BaseFile(std::string nameSpace, std::string include, Conversation* conversation);
+	BaseFile(std::string nameSpace, std::string include, Conversation conversation);
 	BaseFile();
 
 	std::string title = "BASEFILE";
@@ -14,7 +14,7 @@ public:
 	std::string nameSpace;
 	std::string include;
 
-	Conversation* conversation;
+	Conversation conversation;
 
 	std::string tag(int nestedTabs, bool baseTag);
 };

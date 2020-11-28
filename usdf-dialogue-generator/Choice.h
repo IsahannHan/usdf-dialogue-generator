@@ -9,7 +9,7 @@ class Choice : public Element
 {
 public:
 	Choice(std::string text,
-		Cost* cost,
+		Cost cost,
 		bool displaycost,
 		std::string yesmessage,
 		std::string nomessage,
@@ -25,7 +25,7 @@ public:
 		bool closedialog);
 
 	std::string text;
-	Cost* cost;
+	Cost cost;
 	bool displaycost;
 	std::string yesmessage;
 	std::string nomessage;

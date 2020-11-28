@@ -10,7 +10,7 @@ using namespace utils_functions;
 constexpr auto IDENTIFIER = "choice";
 
 Choice::Choice(std::string text,
-	Cost* cost,
+	Cost cost,
 	bool displaycost,
 	std::string yesmessage,
 	std::string nomessage,
@@ -55,7 +55,7 @@ std::string Choice::tag(int nestedTabs, bool baseTag)
 	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
 		.append(baseTag ? "" : tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(text), text))
-		.append(baseTag ? "" : createSingleItem(nestedTabs, *cost, baseTag))
+		.append(baseTag ? "" : createSingleItem(nestedTabs, cost, baseTag))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(displaycost), displaycost))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(yesmessage), yesmessage))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(nomessage), nomessage))

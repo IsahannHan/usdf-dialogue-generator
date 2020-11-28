@@ -15,8 +15,8 @@ public:
         std::string dialog,
         int drop,
         int link,
-        Ifitem* ifitem,
-        std::list<Choice>* choice);
+        Ifitem ifitem,
+        std::list<Choice> choice);
 
     Page();
 
@@ -26,8 +26,8 @@ public:
     std::string dialog;
     int drop;
     int link;
-    Ifitem* ifitem;
-    std::list<Choice>* choice;
+    Ifitem ifitem;
+    std::list<Choice> choice;
 
     std::string title = "PAGE";
 

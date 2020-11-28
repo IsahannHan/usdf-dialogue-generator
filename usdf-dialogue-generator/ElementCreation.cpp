@@ -19,12 +19,12 @@ BaseFile ElementCreation::baseFileCreation() {
 
 	} while (!ElementCreationHelper::satisfiedWithElement(_baseFile.title, _baseFile.tag(0, true)));
 
-	conversationCreation(_baseFile); // Next: CONVERSATION
+	conversationCreation(&_baseFile); // Next: CONVERSATION
 
 	return _baseFile;
 }
 
-void ElementCreation::conversationCreation(BaseFile& baseFile) {
+void ElementCreation::conversationCreation(BaseFile* baseFile) {
 	// Create conversation, and link it to the current baseFile
 
 	Conversation _conversation = Conversation();
@@ -38,14 +38,14 @@ void ElementCreation::conversationCreation(BaseFile& baseFile) {
 
 	} while (!ElementCreationHelper::satisfiedWithElement(_conversation.title, _conversation.tag(0, true)));
 
-	pageCreation(_conversation); // Next: PAGE
+	pageCreation(&_conversation); // Next: PAGE
 
 	// Link to parent
 
-	baseFile.conversation = &_conversation;
+	baseFile->conversation = _conversation;
 }
 
-void ElementCreation::pageCreation(Conversation& conversation) {
+void ElementCreation::pageCreation(Conversation* conversation) {
 	// Create pages, and link it to the current conversation
 
 	std::list<Page> _pagesList;
@@ -69,17 +69,17 @@ void ElementCreation::pageCreation(Conversation& conversation) {
 		} while (!ElementCreationHelper::satisfiedWithElement(_page.title, _page.tag(0, true)));
 
 
-		ifItemCreation(_page);
-		choiceCreation(_page); // Next element: IFITEM and CHOICE 
+		ifItemCreation(&_page);
+		choiceCreation(&_page); // Next element: IFITEM and CHOICE 
 
 		_pagesList.push_back(_page);
 
 	} while (ElementCreationHelper::anotherElementRequested(_page.title, _pagesList.size()));
 
-	conversation.page = &_pagesList;
+	conversation->page = _pagesList;
 }
 
-void ElementCreation::ifItemCreation(Page& page) {
+void ElementCreation::ifItemCreation(Page* page) {
 	// Create ifitem, and link it to the current page
 
 	Ifitem _ifItem = Ifitem();
@@ -94,10 +94,10 @@ void ElementCreation::ifItemCreation(Page& page) {
 
 	} while (!ElementCreationHelper::satisfiedWithElement(_ifItem.title, _ifItem.tag(0, true)));
 
-	page.ifitem = &_ifItem;
+	page->ifitem = _ifItem;
 }
 
-void ElementCreation::choiceCreation(Page& page) {
+void ElementCreation::choiceCreation(Page* page) {
 
 	std::list<Choice> _choicesList;
 	Choice _choice;
@@ -127,17 +127,16 @@ void ElementCreation::choiceCreation(Page& page) {
 
 		} while (!ElementCreationHelper::satisfiedWithElement(_choice.title, _choice.tag(0, true)));
 
-
-		costCreation(_choice); // Next element: COST 
+		costCreation(&_choice); // Next element: COST 
 
 		_choicesList.push_back(_choice);
 
 	} while (ElementCreationHelper::anotherElementRequested(_choice.title, _choicesList.size()));
 
-	page.choice = &_choicesList;
+	page->choice = _choicesList;
 }
 
-void ElementCreation::costCreation(Choice& choice) {
+void ElementCreation::costCreation(Choice* choice) {
 	// Create cost, and link it to the current choice
 
 	Cost _cost = Cost();
@@ -152,12 +151,6 @@ void ElementCreation::costCreation(Choice& choice) {
 
 	} while (!ElementCreationHelper::satisfiedWithElement(_cost.title, _cost.tag(0, true)));
 
-	choice.cost = &_cost;
-}
-
-// Utils
-
-void ElementCreation::proceedNestedElementCreation(Element& currentElement) {
-
+	choice->cost = _cost;
 }
 

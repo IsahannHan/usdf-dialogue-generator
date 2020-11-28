@@ -19,7 +19,7 @@ bool inputBoolean() {
 		bool validNo = b == 'n' || b == 'N';
 
 		if (!validYes && !validNo)
-			std::cout << "Invalid boolean! Please type y/n (Yes/No): ";
+			std::cout << ">>> INVALID VALUE! Please type y/n (Yes/No): ";
 		else
 			return validYes ? true : false;
 	}
@@ -55,7 +55,7 @@ int ElementCreationHelper::createElementInteger(std::string element) {
 		value = createElementBase(element);
 
 		if (!checkValidNumber(value))
-			std::cout << "Invalid number! Please input only numeric values: ";
+			std::cout << ">>> INVALID VALUE! Please type in only numbers: ";
 		else
 			break;
 	}
@@ -87,7 +87,9 @@ bool ElementCreationHelper::satisfiedWithElement(std::string title, std::string 
 }
 
 bool ElementCreationHelper::anotherElementRequested(std::string elementTitle, int index) {
-	std::cout << "\"" << elementTitle << "\" element #" << index << " fully created!";
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
+	std::cout << "          \"" << elementTitle << "\" ELEMENT #" << index << " CREATED!     " << std::endl;
+	std::cout << "---------------------------------------------------------------------------" << std::endl;
 	std::cout << "Do you wish to create another \"" << elementTitle << "\"? Y for yes, N for no: ";
 
 	return inputBoolean();

@@ -8,7 +8,7 @@ int INITIAL_TABS = -1;
 
 using namespace utils_functions;
 
-BaseFile::BaseFile(std::string nameSpace, std::string include, Conversation* conversation)
+BaseFile::BaseFile(std::string nameSpace, std::string include, Conversation conversation)
 {
 	this->nameSpace = nameSpace;
 	this->include = include;
@@ -27,7 +27,7 @@ std::string BaseFile::tag(int nestedTabs, bool baseTag)
 	tag.append(createItemWithValue(initialTabs, "namespace", nameSpace)) // Can't create variable with name 'namespace', so just send it like this lmao
 	    .append(createItemWithValue(initialTabs, GET_VARIABLE_NAME(include), include))
 		.append("\n")
-		.append(baseTag ? "" : createSingleItem(INITIAL_TABS, *conversation, baseTag));
+		.append(baseTag ? "" : createSingleItem(INITIAL_TABS, conversation, baseTag));
 
 	return tag;
 }

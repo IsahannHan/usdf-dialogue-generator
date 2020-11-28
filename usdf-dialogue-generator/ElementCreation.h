@@ -11,15 +11,13 @@ public:
 
 	BaseFile baseFileCreation();
 
-	void conversationCreation(BaseFile& baseFile);
+	void conversationCreation(BaseFile* baseFile);
 
-	void pageCreation(Conversation& conversation);
+	void pageCreation(Conversation* conversation);
 
-	void ifItemCreation(Page& page);
+	void ifItemCreation(Page* page);
 
-	void choiceCreation(Page& page);
+	void choiceCreation(Page* page);
 
-	void costCreation(Choice& choice);
-
-	void proceedNestedElementCreation(Element& currentElement);
+	void costCreation(Choice* choice);
 };
