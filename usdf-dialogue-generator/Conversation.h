@@ -1,15 +1,20 @@
 #pragma once
 #include <string>
+#include <list>
+
 #include "Page.h"
 
-class Conversation
+class Conversation : public Element
 {
 public:
-	Conversation(std::string actor, Page * page);
+	Conversation(std::string actor, std::list<Page> page);
+	Conversation();
 
 	std::string actor;
-	Page* page;
+	std::list<Page> page;
 
-	std::string tag(int nestedTabs);
+	std::string title = "CONVERSATION";
+
+	std::string tag(int nestedTabs, bool baseTag);
 };
 

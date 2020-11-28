@@ -1,31 +1,19 @@
 #include <string>
 #include <stdio.h>
 #include <sstream>
-
-#define GET_VARIABLE_NAME(name) #name
+#include <list>
+#include <iostream>
 
 constexpr auto TAB = "\t";
 constexpr auto ITEM_ASSIGN = " = ";
 
 namespace utils_functions {
 
-    const static std::string getVariableName(std::string name) {
-        return GET_VARIABLE_NAME(name);
-    }
-
-    const static std::string getVariableName(int name) {
-        return GET_VARIABLE_NAME(name);
-    }
-
-    const static std::string toString(int str)
+    const static std::string generateTabs(int& nestedTabs, bool baseTag)
     {
-        std::stringstream gstream;
-        gstream << 4;
-        return gstream.str();
-    }
+        if (baseTag)
+            return "";
 
-    const static std::string generateTabs(int& nestedTabs)
-    {
         std::string tabs;
         nestedTabs++;
 
@@ -37,10 +25,10 @@ namespace utils_functions {
         return tabs;
     }
 
-    const static std::string generateInitialTabs(int& nestedTabs)
+    const static std::string generateInitialTabs(int& nestedTabs, bool baseTag)
     {
         int initialTabs = nestedTabs - 1;
-        return generateTabs(initialTabs);
+        return generateTabs(initialTabs, baseTag);
     }
 
     const static std::string createItem(std::string tabs, std::string itemPrefix, std::string itemValue, bool quoted)
@@ -69,7 +57,7 @@ namespace utils_functions {
 
     const static std::string createItemWithValue(std::string tabs, std::string itemPrefix, int itemValue)
     {
-        std::string value = toString(itemValue);
+        std::string value = std::to_string(itemValue);
 
         return createItem(tabs, itemPrefix, value, false);
     }
@@ -78,4 +66,5 @@ namespace utils_functions {
     {
         return opening ? "\n" + tabs.append("{") + "\n" : tabs.append("}") + "\n";
     }
+
 }

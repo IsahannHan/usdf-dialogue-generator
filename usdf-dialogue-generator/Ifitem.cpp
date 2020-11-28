@@ -1,7 +1,5 @@
-#include <iostream>
-#include <list>
+#include "Ifitem.h"
 
-#include "Conversation.h"
 #include "Functions.cpp"
 #include "Generics.cpp"
 
@@ -9,19 +7,13 @@
 
 using namespace utils_functions;
 
-constexpr auto IDENTIFIER = "conversation";
+constexpr auto IDENTIFIER = "ifitem";
 
-Conversation::Conversation(std::string actor, std::list<Page> page)
-{
-	this->actor = actor;
-	this->page = page;
-}
-
-Conversation::Conversation()
+Ifitem::Ifitem()
 {
 }
 
-std::string Conversation::tag(int nestedTabs, bool baseTag)
+std::string Ifitem::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
 	std::string initialTabs = generateInitialTabs(nestedTabs, baseTag);
@@ -29,11 +21,9 @@ std::string Conversation::tag(int nestedTabs, bool baseTag)
 
 	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
 		.append(baseTag ? "" : tagBracket(initialTabs, true))
-		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
-		.append(baseTag ? "" : createMultipleItems(nestedTabs, page, baseTag))
+		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(item), item))
+		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(amount), amount))
 		.append(baseTag ? "" : tagBracket(initialTabs, false));
 
 	return tag;
 }
-
-

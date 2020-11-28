@@ -1,3 +1,17 @@
-# usdf-dialogue-generator
+# usdf-zsdf-dialogue-generator
 
-Dialogue generator in the [USDF format](https://github.com/rheit/zdoom/blob/master/specs/usdf.txt).
+A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/blob/master/specs/usdf.txt) and [ZSDF](https://github.com/coelckers/gzdoom/blob/master/specs/usdf_zdoom.txt).
+
+## v1.0 [RELEASED]
+
+- Includes the dialogue generator for the USDF format _only_.
+
+## v2.0 [WIP]
+
+- Includes generators for both dialogue types.
+
+#### Ideas
+- [ ] CLI shell-like behaviour
+- [ ] For the UI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ CLI
+- [ ] Create an REST API using [Pistache](http://pistache.io/) (perha:b:s could use ncurses to manage the server), to be consumed by some webapp (React? Angular?)
+
