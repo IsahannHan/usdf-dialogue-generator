@@ -22,7 +22,7 @@ BaseFile::BaseFile()
 std::string BaseFile::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
-	std::string initialTabs = generateInitialTabs(INITIAL_TABS);
+	std::string initialTabs = generateInitialTabs(INITIAL_TABS, baseTag);
 
 	tag.append(createItemWithValue(initialTabs, "namespace", nameSpace)) // Can't create variable with name 'namespace', so just send it like this lmao
 	    .append(createItemWithValue(initialTabs, GET_VARIABLE_NAME(include), include))

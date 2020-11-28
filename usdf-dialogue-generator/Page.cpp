@@ -30,8 +30,8 @@ Page::Page()
 std::string Page::tag(int nestedTabs, bool baseTag)
 {
 	std::string tag;
-	std::string initialTabs = generateInitialTabs(nestedTabs);
-	std::string tabs = generateTabs(nestedTabs);
+	std::string initialTabs = generateInitialTabs(nestedTabs, baseTag);
+	std::string tabs = generateTabs(nestedTabs, baseTag);
 
 	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
 		.append(baseTag ? "" : tagBracket(initialTabs, true))
