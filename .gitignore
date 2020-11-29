@@ -342,5 +342,5 @@ healthchecksdb
 #
 CMakeLists.txt
 build/
-*.generated-dialogue
+*.generated-dialogue.txt
 .vscode/settings.json
