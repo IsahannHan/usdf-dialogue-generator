@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 #include "ElementCreationHelper.h"
 #include "BaseFile.h"

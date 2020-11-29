@@ -2,15 +2,18 @@
 
 A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/blob/master/specs/usdf.txt) and [ZSDF](https://github.com/coelckers/gzdoom/blob/master/specs/usdf_zdoom.txt).
 
-## v1.0.0
+## v1.0 [RELEASED]
 
-- [x] Generate a dialogue (based on mocked data)
-    - [x] Fix "IFITEM" tag to create multiple
-- [x] Receive user input, and generate a dialogue from it
-    - [ ] Fix bugs related to it (WIP)
-- [ ] Create the same project for the ZSDF format
+- Includes the dialogue generator for the USDF format _only_.
 
-### Desirable stuff:
+## v2.0 [WIP]
+
+- Includes generators for both dialogue types.
+
+#### Ideas
 - [ ] CLI shell-like behaviour
 - [ ] For the UI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ CLI
 - [ ] Create an REST API using [Pistache](http://pistache.io/) (perha:b:s could use ncurses to manage the server), to be consumed by some webapp (React? Angular?)
+
+#### TO-DO
+- [ ] Fix IDENTIFIER appearing before curly brackets.
