@@ -10,7 +10,7 @@ void FileCreation::dialogueCreation() {
 
 	ofs_generated_file.open("generated_dialogue.txt", std::ios::out);
 
-	ofs_generated_file << creation.baseFileCreation().tag(0, false) << std::endl;
+	ofs_generated_file << creation.baseFileCreation().tag(0) << std::endl;
 
 	system("cls");
 	std::cout << "-------------------------------------------------------------------------------" << std::endl;

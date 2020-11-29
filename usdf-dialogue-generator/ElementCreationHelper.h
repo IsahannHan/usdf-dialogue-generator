@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-#include "Element.h"
 #include "BaseFile.h"
 
 class ElementCreationHelper

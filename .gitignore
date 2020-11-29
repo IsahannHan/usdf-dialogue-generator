@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+#
+CMakeLists.txt
+build/
+*.generated-dialogue.txt
+.vscode/settings.json

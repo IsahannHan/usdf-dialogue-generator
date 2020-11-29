@@ -14,3 +14,5 @@ Currently **WIP**
 - [ ] For the UI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ CLI
 - [ ] Create an REST API using [Pistache](http://pistache.io/) (perha:b:s could use ncurses to manage the server), to be consumed by some webapp (React? Angular?)
 
+#### TO-DO
+- [x] Fix IDENTIFIER appearing before curly brackets.

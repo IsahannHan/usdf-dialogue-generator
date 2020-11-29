@@ -9,11 +9,8 @@ constexpr auto ITEM_ASSIGN = " = ";
 
 namespace utils_functions {
 
-    const static std::string generateTabs(int& nestedTabs, bool baseTag)
+    const static std::string generateTabs(int& nestedTabs)
     {
-        if (baseTag)
-            return "";
-
         std::string tabs;
         nestedTabs++;
 
@@ -25,10 +22,10 @@ namespace utils_functions {
         return tabs;
     }
 
-    const static std::string generateInitialTabs(int& nestedTabs, bool baseTag)
+    const static std::string generateInitialTabs(int& nestedTabs)
     {
         int initialTabs = nestedTabs - 1;
-        return generateTabs(initialTabs, baseTag);
+        return generateTabs(initialTabs);
     }
 
     const static std::string createItem(std::string tabs, std::string itemPrefix, std::string itemValue, bool quoted)

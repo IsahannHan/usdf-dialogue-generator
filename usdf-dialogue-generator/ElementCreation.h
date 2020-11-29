@@ -4,7 +4,6 @@
 #include "Page.h"
 #include "Conversation.h"
 #include "Choice.h"
-#include "Element.h"
 
 class ElementCreation {
 public:

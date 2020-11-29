@@ -11,27 +11,25 @@ using namespace utils_functions;
 
 constexpr auto IDENTIFIER = "conversation";
 
-Conversation::Conversation(std::string actor, std::list<Page> page)
-{
-	this->actor = actor;
-	this->page = page;
-}
-
-Conversation::Conversation()
-{
-}
-
-std::string Conversation::tag(int nestedTabs, bool baseTag)
-{
+std::string Conversation::tag(int nestedTabs) {
 	std::string tag;
-	std::string initialTabs = generateInitialTabs(nestedTabs, baseTag);
-	std::string tabs = generateTabs(nestedTabs, baseTag);
+	std::string initialTabs = generateInitialTabs(nestedTabs);
+	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(baseTag ? "" : initialTabs.append(IDENTIFIER))
-		.append(baseTag ? "" : tagBracket(initialTabs, true))
+	tag.append(initialTabs + IDENTIFIER)
+		.append(tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor))
-		.append(baseTag ? "" : createMultipleItems(nestedTabs, page, baseTag))
-		.append(baseTag ? "" : tagBracket(initialTabs, false));
+		.append(createMultipleItems(nestedTabs, page))
+		.append(tagBracket(initialTabs, false));
+
+	return tag;
+}
+
+std::string Conversation::baseTag() {
+	std::string tag;
+	std::string tabs = "";
+
+	tag.append(createItemWithValue(tabs, GET_VARIABLE_NAME(actor), actor));
 
 	return tag;
 }

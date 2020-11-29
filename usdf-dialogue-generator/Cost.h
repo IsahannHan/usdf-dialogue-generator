@@ -1,16 +1,14 @@
 #pragma once
 #include "ItemAmountBase.h"
-#include "Element.h"
 
-class Cost :
-    public Element,
-    public ItemAmountBase
+class Cost : public ItemAmountBase
 {
 public:
     using ItemAmountBase::ItemAmountBase;
 
     std::string title = "COST";
 
-    std::string tag(int nestedTabs, bool baseTag);
+	std::string tag(int nestedTabs);
+	std::string baseTag();
 };
 
