@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sstream>
 
-#include "Element.h"
 #include "ElementCreationHelper.h"
 #include "BaseFile.h"
 

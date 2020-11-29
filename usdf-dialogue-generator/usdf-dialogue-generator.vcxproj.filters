@@ -33,9 +33,6 @@
     <ClCompile Include="Ifitem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemAmountBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Choice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -50,9 +47,6 @@
     </ClCompile>
     <ClCompile Include="FileCreation.cpp">
       <Filter>Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Element.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ElementCreation.cpp">
       <Filter>Utils</Filter>
@@ -81,9 +75,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseFile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ElementCreationHelper.h">

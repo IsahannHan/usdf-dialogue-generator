@@ -1,43 +1,43 @@
-namespace = "hi"; 
-include = "sex"; 
+namespace = "teste"; 
+include = "banana"; 
 
 conversation
 {
-	actor = "hello"; 
+	actor = "sexo"; 
 	page
 	{
-		name = "so"; 
-		panel = "you"; 
-		voice = "think"; 
-		dialog = "you"; 
-		drop = 34; 
-		link = 66; 
+		name = "hello"; 
+		panel = "nig"; 
+		voice = "no"; 
+		dialog = "yes"; 
+		drop = 3; 
+		link = 34; 
 		ifitem
 		{
-			item = 3; 
-			amount = 4; 
+			item = 98; 
+			amount = 12; 
 		}
 		choice
 		{
-			text = "hehehe"; 
+			text = "hello"; 
 			cost
 			{
-				item = 3; 
-				amount = 2; 
+				item = 12; 
+				amount = 44; 
 			}
 			displaycost = false; 
-			yesmessage = "yes"; 
-			nomessage = "oojo"; 
-			log = "hehhee"; 
-			giveitem = 8; 
-			special = 4; 
-			arg0 = 3; 
-			arg1 = 2; 
-			arg2 = 11; 
-			arg3 = 4343; 
-			arg4 = 555; 
-			nextpage = 667; 
-			closedialog = false; 
+			yesmessage = "bitch"; 
+			nomessage = "fuck"; 
+			log = "sex"; 
+			giveitem = 2; 
+			special = 3; 
+			arg0 = 4; 
+			arg1 = 56; 
+			arg2 = 78; 
+			arg3 = 867857; 
+			arg4 = 45467; 
+			nextpage = 345; 
+			closedialog = true; 
 		}
 	}
 }
