@@ -15,3 +15,5 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 - [ ] For the UI, use [ncurses](https://en.wikipedia.org/wiki/Ncurses) instead of raw C++ CLI
 - [ ] Create an REST API using [Pistache](http://pistache.io/) (perha:b:s could use ncurses to manage the server), to be consumed by some webapp (React? Angular?)
 
+#### TO-DO
+- [ ] Fix IDENTIFIER appearing before curly brackets.
