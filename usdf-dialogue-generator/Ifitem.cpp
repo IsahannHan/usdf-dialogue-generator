@@ -15,7 +15,7 @@ std::string Ifitem::tag(int nestedTabs)
 	std::string initialTabs = generateInitialTabs(nestedTabs);
 	std::string tabs = generateTabs(nestedTabs);
 
-	tag.append(initialTabs.append(IDENTIFIER))
+	tag.append(initialTabs + IDENTIFIER)
 		.append(tagBracket(initialTabs, true))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(item), item))
 		.append(createItemWithValue(tabs, GET_VARIABLE_NAME(amount), amount))
