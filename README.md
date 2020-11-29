@@ -16,4 +16,4 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 - [ ] Create an REST API using [Pistache](http://pistache.io/) (perha:b:s could use ncurses to manage the server), to be consumed by some webapp (React? Angular?)
 
 #### TO-DO
-- [ ] Fix IDENTIFIER appearing before curly brackets.
+- [x] Fix IDENTIFIER appearing before curly brackets.
