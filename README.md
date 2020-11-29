@@ -4,6 +4,9 @@ A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/b
 
 ## v1.0 [RELEASED]
 - Includes the dialogue generator for the USDF format _only_.
+### v1.1 [RELEASED]
+- Fixing IDENTIFIER bug
+- Changing baseTag generation structure
 
 ## v2.0
 Currently **WIP**
