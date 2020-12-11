@@ -2,7 +2,7 @@
 
 A dialogue generator using both formats, [USDF](https://github.com/rheit/zdoom/blob/master/specs/usdf.txt) and [ZSDF](https://github.com/coelckers/gzdoom/blob/master/specs/usdf_zdoom.txt).
 
-### UPDATE: There will be no longer updates or releases for this project. We're currently working on making it a webapp, avaliable at https://github.com/IsahannHan/usdf-zsdf-dialogue-generator-webapp 
+### UPDATE: There will be no longer updates or releases for this project. We're currently working on making it as a webapp, avaliable at https://github.com/IsahannHan/usdf-zsdf-dialogue-generator-webapp 
 
 ## v1.0 [RELEASED]
 - Includes the dialogue generator for the USDF format _only_.
